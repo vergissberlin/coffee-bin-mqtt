@@ -17,6 +17,6 @@
    contribute
 
 
-.. |CoffeeBin wiring| image:: docs/img/coffeebin-mqtt.png
+.. |CoffeeBin wiring| image:: img/coffeebin-mqtt.png
   :width: 800
   :alt: How to wire everthing together
