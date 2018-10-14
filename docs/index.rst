@@ -1,11 +1,5 @@
 .. include:: ../README.rst
 
-
-`Download PDF [ 196kb ] <img/coffeebin-mqtt.pdf>`_ \
-| `Download PNG [ 121kb ] <img/coffeebin-mqtt.png>`_ \
-| `Download SVG [622kb ] <img/coffeebin-mqtt.svg>`_
-
-
 .. toctree::
    :caption: CoffeBin - MQTT
    :maxdepth: 2
