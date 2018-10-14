@@ -1,7 +1,7 @@
 .. include:: ../README.rst
 
 .. toctree::
-   :caption: CoffeBin - MQTT
+   :caption: Table of content
    :maxdepth: 1
 
    requirements
