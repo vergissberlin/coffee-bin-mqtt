@@ -2,6 +2,13 @@ Configuration
 =============
 
 
+
+.. tip::
+
+    You can enable RPC to configure and controll your divice over WiFi.
+
+
+
 config9.json
 ------------
 

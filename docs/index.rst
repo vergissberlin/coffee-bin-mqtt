@@ -6,5 +6,5 @@
 
    requirements
    configuration
-   contributing
+   contribute
 
