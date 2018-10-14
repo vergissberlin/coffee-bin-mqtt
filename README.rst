@@ -20,9 +20,6 @@ Features
 Wiring
 ======
 
-  .. image:: docs/coffeebin-mqtt.png
-  
-
 |CoffeeBin wiring| \
 `Download PDF [ 196kb ] <docs/img/coffeebin-mqtt.pdf>`_ \
 | `Download PNG [ 121kb ] <docs/img/coffeebin-mqtt.png>`_ \
