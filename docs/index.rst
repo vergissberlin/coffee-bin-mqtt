@@ -2,9 +2,7 @@
 
 .. toctree::
    :caption: CoffeBin - MQTT
-   :maxdepth: 2
-   :glob:
-     docs/*
+   :maxdepth: 1
 
    requirements
    configuration
