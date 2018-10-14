@@ -9,12 +9,6 @@ If you are interested to improve the code, fee free to
 2. make your changes
 3. Create a pull request.
 
-.. code:: bash
-
-  def my_function():
-      "just a test"
-      print 8/2
-
 Bug reports
 -----------
 

@@ -16,7 +16,13 @@ Features
 - It has an external status LED
 - It has an switch to broadcast an MQTT message, that the coffe machine is in maintenance mode.
 
-.. image:: ./docs/img/coffeebin-mqtt.png
+
+Wiring
+======
+
+.. image:: docs/img/coffeebin-mqtt.png
+  :width: 800
+  :alt: How to wire everthing together
 
 CoffeeBin wiring: \
 `Download PDF [ 196kb ] <docs/img/coffeebin-mqtt.pdf>`_ \
