@@ -21,9 +21,9 @@ Wiring
 ======
 
 |CoffeeBin wiring| \
-`Download PDF [ 196kb ] <docs/img/coffeebin-mqtt.pdf>`_ \
-| `Download PNG [ 121kb ] <docs/img/coffeebin-mqtt.png>`_ \
-| `Download SVG [622kb ] <docs/img/coffeebin-mqtt.svg>`_
+`Download PDF [ 196kb ] <https://github.com/vergissberlin/coffee-bin-mqtt/raw/master/docs/img/coffeebin-mqtt.pdf>`_ \
+| `Download PNG [ 121kb ] <https://github.com/vergissberlin/coffee-bin-mqtt/raw/master/docs/img/coffeebin-mqtt.png>`_ \
+| `Download SVG [622kb ] <https://github.com/vergissberlin/coffee-bin-mqtt/raw/master/docs/img/coffeebin-mqtt.svg>`_
 
 .. |CoffeeBin wiring| image:: docs/img/coffeebin-mqtt.png
   :width: 800
