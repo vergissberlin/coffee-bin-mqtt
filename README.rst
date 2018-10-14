@@ -20,8 +20,7 @@ Features
 Wiring
 ======
 
-
-  .. image:: docs/img/coffeebin-mqtt.png
+  .. image:: docs/coffeebin-mqtt.png
   
 
 |CoffeeBin wiring| \
