@@ -1,7 +1,10 @@
 /*
 !/fs
+!/.eslintignore
 !/.gitignore
-!/docs
-!/init.js
+!/docs/
+!/fs
 !/LICENSE
+!/mos.yml
 !/README.rst
+/fs/conf*.json

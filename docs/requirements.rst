@@ -17,5 +17,5 @@ Software
 --------
 
 - Web browser on Linux, MacOS or Windows
-- USB adapter driver
+- USB adapter driver (/dev/cu.wchusbserial14610)
 - `MongooseOS <https://mongoose-os.com>`_

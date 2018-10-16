@@ -1,0 +1,31 @@
+author: vergissberlin
+description: coffee-bin detector
+version: 1.0
+platform: esp8266
+
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+tags:
+  - js
+
+filesystem:
+  - fs
+
+build_vars:
+  FLASH_SIZE: 4194304
+  MOS_ESP_BAUD_RATE: 115200
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/js-demo-bundle
+  - origin: https://github.com/mongoose-os-libs/wifi
+  - origin: https://github.com/mongoose-os-libs/dash
+  - origin: https://github.com/mongoose-os-libs/boards
+  - origin: https://github.com/mongoose-os-libs/ca-bundle
+  - origin: https://github.com/mongoose-os-libs/rpc-service-config
+  - origin: https://github.com/mongoose-os-libs/rpc-service-fs
+  - origin: https://github.com/mongoose-os-libs/rpc-uart
+
+# Used by the mos tool to catch mos binaries incompatible with this file format
+manifest_version: 2017-09-29

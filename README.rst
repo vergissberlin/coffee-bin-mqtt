@@ -28,3 +28,17 @@ Wiring
 .. |CoffeeBin wiring| image:: docs/img/coffeebin-mqtt.png
   :width: 800
   :alt: How to wire everthing together
+
+
+Build
+=====
+
+You need to install Docker to build it locally.
+.. code:: bash
+
+    git clone https://github.com/vergissberlin/coffee-bin-mqtt
+    cd coffee-bin-mqtt
+    mos build --platform ESP8266 --local --verbose
+    mos flash --port /dev/cu.SLAB_USBtoUART --esp-erase-chip --esp-baud-rate 115200 --esp-flash-params "dio,4m,40m"
+    mos console --port /dev/cu.SLAB_USBtoUART
+
