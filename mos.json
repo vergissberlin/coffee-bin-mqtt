@@ -1,0 +1,16 @@
+{
+    "app": {
+        "feed": {
+            "sensor": "coffeebin.sensor" ,
+            "led": "coffeebin.led"
+        },
+        "config": {
+            "sleep": 60000
+        },
+        "pin": {
+            "led": 2,
+            "button": 0,
+            "pin": 14
+        }
+    }
+}

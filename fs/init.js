@@ -2,52 +2,40 @@ load('api_config.js');
 load('api_gpio.js');
 load('api_mqtt.js');
 load('api_timer.js');
-load("api_esp8266.js");
+load('api_esp8266.js');
+
+// Custom functions
+load('mqtt.js');
 
 // ... or set io.adafruit mqtt settings and set feed name here:
-let feedSensor = 'coffeebin.sensor';
-let feedLed = 'coffeebin.led';
-
-// HELLEL WORLS
-
-// Some millisecond settings. adjust to your needs
-let millisToTurnOff = 60000;
+let feedSensor = Cfg.get('app.feed.sensor');
+let feedLed = Cfg.get('app.feed.led');
 
 // Configure LED
-let led = 2;
+let led =  Cfg.get('app.pin.led');
 GPIO.set_mode(led, GPIO.MODE_OUTPUT);
 
 // GPIO 0 is typically a 'Flash' buttonmos
-let button = 0;
-let pin = 14;
+let button =  Cfg.get('app.pin.button');
+let pin = Cfg.get('app.pin.pin');
 
 //***********************************************
 
-// Functions
-function send(feed, msg, qos) {
-  let topic = Cfg.get('mqtt.user') + '/feeds/' + feed;
-  let ok = MQTT.pub(topic, JSON.stringify(msg || 1), qos || 1);
-  if (ok) print('sent mqtt for ' + feed)
-  else print('failed mqtt for' + feed);
-  MQTT.setEventHandler(function () { }, null);
-}
-
 // Deep sleep
 /*
-Timer.set(millisToTurnOff , false , function() {
+Timer.set(Cfg.get('app.config.sleep') , false , function() {
   print("deep sleep");
   ESP8266.deepSleep(0);
 }, null);
 */
 
-
 // GPIO listener
 GPIO.set_button_handler(button, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
-  print('Button press, pin:', x);
+  print('QQQButton press, pin:', x);
   send(feedSensor);
 }, true);
 GPIO.set_button_handler(pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
-  print('Sensor active, pin', x);
+  print('QQQSensor active, pin', x);
   send(feedSensor);
 }, true);
 
