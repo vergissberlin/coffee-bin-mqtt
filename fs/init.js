@@ -27,13 +27,29 @@ Timer.set(Cfg.get('app.config.sleep') , false , function() {
   print("deep sleep");
   ESP8266.deepSleep(0);
 }, null);
+
+Timer.set(5000, false, function() {
+  print("timer");
+  print(Cfg.get("app.config.sleep"));
+  print(Cfg.get("app.pin.bin.pin"));
+  print(Cfg.get("app.pin.bin.pull_up"));
+  print(Cfg.get("app.pin.voltage.pin"));
+  print(Cfg.get("app.pin.voltage.pull_up"));
+  print(Cfg.get("app.pin.button.pin")); 
+  print(Cfg.get("app.pin.button.pull_up"));
+});
 */
 
+Timer.set(1000, false, function() {
+  print("timer");
+});
+
 // GPIO listener
-GPIO.set_button_handler(button, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
-  print('QQQButton press, pin:', x);
+GPIO.set_button_handler(0, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
+  print('Button press, pin:', x);
   send(feedSensor);
 }, true);
+
 GPIO.set_button_handler(pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
   print('QQQSensor active, pin', x);
   send(feedSensor);
@@ -43,6 +59,7 @@ GPIO.set_button_handler(pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
 MQTT.sub(Cfg.get('mqtt.user') + '/feeds/' + feedSensor, function (conn, topic, msg) {
   print('Topic:', topic, 'message:', msg);
 }, null);
+
 MQTT.sub(Cfg.get('mqtt.user') + '/feeds/' + feedLed, function (conn, topic, msg) {
   print('Topic:', topic, 'message:', msg);
   if (JSON.parse(msg) === 0) {
@@ -51,7 +68,6 @@ MQTT.sub(Cfg.get('mqtt.user') + '/feeds/' + feedLed, function (conn, topic, msg)
     GPIO.write(led, 0);
   }
 }, null);
-
 
 // MQTT on booting
 MQTT.setEventHandler(function (conn, ev, edata) {
