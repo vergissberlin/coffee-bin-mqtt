@@ -4,7 +4,7 @@ modules_version: ${mos.version}
 mongoose_os_version: ${mos.version}
 
 author: vergissberlin
-description: coffee-bin detector
+description: "coffee-bin detector"
 version: 1.0
 platform: esp8266
 
@@ -18,18 +18,6 @@ build_vars:
   FLASH_SIZE: 4194304
   MOS_ESP_BAUD_RATE: 115200
 
-config_schema:
-  - ["i2c.enable",                true ]  
-  - ["mqtt.server",               "io.adafruit.com:1883" ]
-  - ["mqtt.enable",               true ]
-  - ["rpc.mqtt.enable",           false ] # Disable remote control over MQTT
-  - ["app.feed.sensor",           "coffeebin.sensor" ]
-  - ["app.feed.led",              "coffeebin.led" ]
-  - ["app.config.sleep",          60000 ]
-  - ["app.pin.led",               2 ]
-  - ["app.pin.button",            0 ]
-  - ["app.pin.pin",               14 ]
-  - ["foo",                       "ola" ] 
 
 
 libs:
@@ -54,13 +42,13 @@ config_schema:
 - ["app.pin.led.red",           "o",        { title: "Red LED object"} ]
 - ["app.pin.led.green",         "o",        { title: "Green LED object"} ]
 - ["app.pin.bin",               "o",        { title: "Bin sensor object"} ]
-- ["app.pin.switch",            "o",        { title: "Switch object"} ]
+- ["app.pin.button",            "o",        { title: "Button switch object"} ]
 - ["app.pin.voltage",           "o",        { title: "Voltage sensor object"} ]
 
 ## Pin values
 - ["app.pin.bin.pin",           "i",  14,   { title: "Sensor to messure if the bin is full."} ]
-- ["app.pin.bin.pull_up"        "b",  true, { title: "Sensor to messure the current voltage of the batteries."} ]
+- ["app.pin.bin.pull_up",       "b",  true, { title: "Set value to 1 if the bin is full."} ]
 - ["app.pin.voltage.pin",       "i",  14,   { title: "Sensor to messure the current voltage of the batteries on analog pin."} ]
-- ["app.pin.voltage.pull_up"    "b",  true, { title: ""} ]
-
-
+- ["app.pin.voltage.pull_up",   "b",  true, { title: ""} ]
+- ["app.pin.button.pin",        "i",  14,   { title: ""} ]
+- ["app.pin.button.pull_up",    "b",  true, { title: ""} ]
