@@ -7,6 +7,21 @@ load('api_esp8266.js');
 // Custom functions
 load('mqtt.js');
 
+let pins = {
+      "feed": {
+          "sensor": "coffeebin.sensor" ,
+          "led": "coffeebin.led"
+      },
+      "config": {
+          "sleep": 60000
+      },
+      "pin": {
+          "led": 2,
+          "button": 0,
+          "pin": 14
+      }
+}
+
 // ... or set io.adafruit mqtt settings and set feed name here:
 let feedSensor = Cfg.get('app.feed.sensor');
 let feedLed = Cfg.get('app.feed.led');
@@ -44,6 +59,7 @@ Timer.set(1000, false, function() {
   print("timer");
 });
 
+/*
 // GPIO listener
 GPIO.set_button_handler(0, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
   print('Button press, pin:', x);
@@ -75,6 +91,7 @@ MQTT.setEventHandler(function (conn, ev, edata) {
   if (ev === MQTT.EV_CLOSE) send('coffeebin.status', 0);
 }, null);
 
+*/
 // Info
 print('Flash button is configured on GPIO pin ', pin);
 print('Press the flash button now!');
