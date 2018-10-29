@@ -16,7 +16,6 @@ GPIO.write(led, 0);
 // Flash button
 GPIO.set_button_handler(buttonFlash, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
     print('Button press, pin:', x);
-    print(GPIO.read(led));
     if (GPIO.read(led) === 0) {
         GPIO.write(led, 1);
         send('coffeebin.maintenance', 0);
@@ -29,7 +28,6 @@ GPIO.set_button_handler(buttonFlash, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, functi
 // Bin
 GPIO.set_button_handler(buttonBin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
     print('Button press, pin:', x);
-    print(GPIO.read(ledRed));
     if (GPIO.read(ledRed) === 0) {
         GPIO.write(ledRed, 1);
         send('coffeebin.bin', 1);
