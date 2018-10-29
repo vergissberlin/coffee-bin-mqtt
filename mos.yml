@@ -27,29 +27,14 @@ config_schema:
 - ["wifi.ap.enable",            false ] 
 - ["wifi.sta.enable",           true ] 
 - ["wifi.sta.ssid",             "leipzig-bei-nacht" ] 
-- ["wifi.sta.pass",             "" ] 
+- ["wifi.sta.pass",             "MakeItPublic2017" ] 
 - ["i2c.enable",                true ]  
 - ["mqtt.server",               "io.adafruit.com:1883" ]
+- ["mqtt.user",                 "vergissberlin" ]
+- ["mqtt.pass",                 "ad755b7b9d994e4abe62bc0ace181023" ]
 - ["mqtt.enable",               true ]
-- ["rpc.mqtt.enable",           false ] # Disable remote control over MQTT
+- ["rpc.mqtt.enable",           false ]
 
 # Configuration
 - ["app.config",                "o",        { title: "Configurtion object"} ]
 - ["app.config.deepSleep",      "i",  6000, { title: "How long to sleep in milliseconds"} ]
-
-# Pin objects
-- ["app.pin",                   "o",        { title: "Pin object"} ]
-- ["app.pin.led",               "o",        { title: "LED object"} ]
-- ["app.pin.led.red",           "o",        { title: "Red LED object"} ]
-- ["app.pin.led.green",         "o",        { title: "Green LED object"} ]
-- ["app.pin.bin",               "o",        { title: "Bin sensor object"} ]
-- ["app.pin.button",            "o",        { title: "Button switch object"} ]
-- ["app.pin.voltage",           "o",        { title: "Voltage sensor object"} ]
-
-## Pin values
-- ["app.pin.bin.pin",           "i",  14,   { title: "Sensor to messure if the bin is full."} ]
-- ["app.pin.bin.pull_up",       "b",  true, { title: "Set value to 1 if the bin is full."} ]
-- ["app.pin.voltage.pin",       "i",  14,   { title: "Sensor to messure the current voltage of the batteries on analog pin."} ]
-- ["app.pin.voltage.pull_up",   "b",  true, { title: ""} ]
-- ["app.pin.button.pin",        "i",  14,   { title: ""} ]
-- ["app.pin.button.pull_up",    "b",  true, { title: ""} ]

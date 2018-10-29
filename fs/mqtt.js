@@ -1,3 +1,7 @@
+load('api_config.js');
+load('api_mqtt.js');
+
+let mqttUser = Cfg.get('mqtt.user');
 
 /**
  * Send MQTT messages
@@ -7,10 +11,10 @@
  * @param {*} qos Quality of service level
  */
 function send(feed, msg, qos) {
-	let topic = Cfg.get('mqtt.user') + '/feeds/' + feed;
-	let ok = MQTT.pub(topic, JSON.stringify(msg || 1), qos || 1);
-	if (ok) print('sent mqtt for ' + feed)
-	else print('Failed mqtt for ' + feed);
+	let topic = mqttUser + '/feeds/' + feed;
+	let msg = JSON.stringify(msg);
+	let ok = MQTT.pub(topic, msg, qos || 1);
+	if (ok) print('Sent mqtt "' + msg + '" for ' + feed)
+	else print('Failed mqtt "' + msg + '" for ' + feed);
 	MQTT.setEventHandler(function () { }, null);
   }
-  
