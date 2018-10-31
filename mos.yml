@@ -27,11 +27,11 @@ config_schema:
 - ["wifi.ap.enable",            false ] 
 - ["wifi.sta.enable",           true ] 
 - ["wifi.sta.ssid",             "leipzig-bei-nacht" ] 
-- ["wifi.sta.pass",             "" ] 
+- ["wifi.sta.pass",             "MakeItPublic2017" ] 
 - ["i2c.enable",                true ]  
 - ["mqtt.server",               "io.adafruit.com:1883" ]
 - ["mqtt.user",                 "vergissberlin" ]
-- ["mqtt.pass",                 "" ]
+- ["mqtt.pass",                 "ad755b7b9d994e4abe62bc0ace181023" ]
 - ["mqtt.enable",               true ]
 - ["rpc.mqtt.enable",           false ]
 
