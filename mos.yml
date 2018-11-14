@@ -6,7 +6,7 @@ mongoose_os_version: ${mos.version}
 author: vergissberlin
 description: "coffee-bin detector"
 version: 1.0
-platform: esp8266
+platform: esp32
 
 tags:
   - js

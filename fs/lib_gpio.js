@@ -2,8 +2,8 @@ load('api_gpio.js');
 load('api_sys.js');
 
 // Configure LED
-let led =  2;
-let ledRed = 12;
+let led =  16;
+let ledRed = 2;
 GPIO.set_mode(led, GPIO.MODE_OUTPUT);
 GPIO.set_mode(ledRed, GPIO.MODE_OUTPUT);
 
@@ -13,13 +13,18 @@ let buttonBin = 5;
 GPIO.set_mode(buttonBin, GPIO.MODE_INPUT);
 GPIO.write(led, 0);
 
+// Status
+let status = 0;
+
 // Flash button
 GPIO.set_button_handler(buttonFlash, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 20, function (x) {
     print('Button press, pin:', x);
-    if (GPIO.read(led) === 0) {
+    if (status === 0) {
+        status = 1;
         GPIO.write(led, 1);
         send('coffeebin.maintenance', 0);
       } else {
+        status = 0;
         GPIO.write(led, 0);
         send('coffeebin.maintenance', 1);
       }
