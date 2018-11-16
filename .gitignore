@@ -1,8 +1,7 @@
 /*
 !/.gitignore
 !/docs/
-!/coffee-bin.ino
-!/config.dist.h
+!/coffee-bin
 !/LICENSE
 !/README.rst
-
+/cofee-bin/config.h
