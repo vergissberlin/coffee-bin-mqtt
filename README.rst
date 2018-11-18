@@ -6,6 +6,7 @@ coffee-bin-mqtt
     :target: https://coffee-bin-mqtt.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
+
 MQTT sensor project for `CoffeeBin <https://github.com/vergissberlin/coffee-bin>`_. 
 
 Features
@@ -27,6 +28,14 @@ Hardware
 - LED
 - Switch
 - Voltage sensor
+
+Software
+========
+
+.. code::bash
+
+    esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+    esptool.py --port /dev/cu.SLAB_USBtoUART --baud460800 write_flash --flash_size=detect 0 esp8266-20180511-v1.9.4.bin
 
 Wiring
 ======
