@@ -17,16 +17,19 @@
   By André Lademann <vergissberlin@gmail.com>
 
   https://github.com/vergissberlin/coffee-bin-mqtt
-
 */
 
 #include <ESP8266WiFi.h>
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+#include <ButtonDebounce.h>
 
 // Load configuration
 #include "config.h"
+
+// Buttons
+ButtonDebounce button(0, 5000);
 
 void setupWifi() {
   WiFi.mode(WIFI_STA);
@@ -34,8 +37,14 @@ void setupWifi() {
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
     Serial.println("Connection Failed! Rebooting...");
     delay(5000);
+    digitalWrite(led2, HIGH);
+    delay(20);  
+    digitalWrite(led1, LOW);
     ESP.restart();
   }
+  Serial.println("Ready");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
 }
 
 void setupOta() {
@@ -66,30 +75,33 @@ void setupOta() {
 void setupPins() {
   pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
+  button.setCallback(buttonChanged);
+}
+
+void buttonChanged(int state){
+  Serial.println("Changed: " + String(state));
 }
 
 void setup() {
-  Serial.begin(9200);
+  Serial.begin(9600);
   Serial.println("Booting");
 
   setupWifi();
   setupOta();
   setupPins();
-
-  Serial.println("Ready");
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
-
 }
 
 void loop() {
   ArduinoOTA.handle();
+  button.update();
 
   // Heartbeat LED
   digitalWrite(led1, LOW);
+  delay(80);
   digitalWrite(led2, LOW);
   delay(20);
   digitalWrite(led1, HIGH);
+  delay(80);
   digitalWrite(led2, HIGH);
   delay(1200);
 }
