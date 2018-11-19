@@ -39,7 +39,7 @@
 void setup() {
   Serial.begin(9600);
   delay(500);
-  Serial.println(F(" ✰✰✰  Coffee-Bin booting ✰✰✰ "));
+  Serial.println(F("\n\t✰✰✰  Coffee-Bin booting ✰✰✰ "));
   
   setupWifi();
   setupOta();
@@ -47,19 +47,18 @@ void setup() {
   setupMqtt();
 }
 
-
 void loop() {
   loopMqtt();
   loopOta();
   loopPin();
 
   // Heartbeat LED
-  digitalWrite(led1, LOW);
+  digitalWrite(pinLedTop, LOW);
   delay(80);
-  digitalWrite(led2, LOW);
+  digitalWrite(pinLedBottom, LOW);
   delay(20);
-  digitalWrite(led1, HIGH);
+  digitalWrite(pinLedTop, HIGH);
   delay(80);
-  digitalWrite(led2, HIGH);
-  delay(1200);
+  digitalWrite(pinLedBottom, HIGH);
+  delay(200);
 }

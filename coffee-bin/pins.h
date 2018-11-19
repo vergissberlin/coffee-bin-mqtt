@@ -9,20 +9,25 @@
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
 
-// Buttons
-ButtonDebounce button(0, 5000);
+// Buttons & sensors
+ButtonDebounce buttonFlash(pinFlash, 5000);
+ButtonDebounce buttonBin(pinBin, 5000);
+ButtonDebounce buttonMaintenance(pinMaintenance, 5000);
 
 void buttonChanged(int state){
   Serial.println("Changed: " + String(state));
 }
 
-
 void setupPins() {
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-  button.setCallback(buttonChanged);
+  pinMode(pinLedTop, OUTPUT);
+  pinMode(pinLedBottom, OUTPUT);
+  buttonBin.setCallback(buttonChanged);
+  buttonFlash.setCallback(buttonChanged);
+  buttonMaintenance.setCallback(buttonChanged);
 }
 
 void loopPin() {
-  button.update();
+  buttonBin.update();
+  buttonFlash.update();
+  buttonMaintenance.update();
 }

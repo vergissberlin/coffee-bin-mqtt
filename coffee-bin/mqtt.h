@@ -74,13 +74,6 @@ void MQTT_connect() {
 
 */
 
-// ************************* Adafruit.io Setup *********************************
-
-#define AIO_SERVER      "io.adafruit.com"
-#define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "vergissberlin"
-#define AIO_KEY         "ad755b7b9d994e4abe62bc0ace181023"
-
 // ************ Global State (you don't need to change this!) ******************
 
 // Create an ESP8266 WiFiClient class to connect to the MQTT server.
@@ -88,17 +81,16 @@ WiFiClient client;
 // or... use WiFiFlientSecure for SSL
 //WiFiClientSecure client;
 
-// Setup the MQTT client class by passing in the WiFi client and MQTT server and login details.
-Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
+Adafruit_MQTT_Client mqtt(&client, MQTT_SERVER, MQTT_SERVERPORT, MQTT_USERNAME, MQTT_KEY);
 
 // ****************************** Feeds *****************************************
 
 // Setup a feed called 'photocell' for publishing.
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname>
-Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/photocell");
+Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt, MQTT_USERNAME "/feeds/photocell");
 
 // Setup a feed called 'onoff' for subscribing to changes.
-Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/onoff");
+Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&mqtt, MQTT_USERNAME "/feeds/onoff");
 
 // *************************** Sketch Code **************************************
 
