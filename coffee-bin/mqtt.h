@@ -54,7 +54,7 @@ void MQTT_connect() {
     return;
   }
 
-  Serial.print("Connecting to MQTT... ");
+  Serial.print(F("Connecting to MQTT... "));
 
   uint8_t retries = 3;
   while ((ret = mqtt.connect()) != 0) { // connect will return 0 for connected
@@ -68,10 +68,10 @@ void MQTT_connect() {
          while (1);
        }
   }
-  Serial.println("MQTT Connected!");
+  Serial.println(F("MQTT Connected!"));
 }
 
 void setupMqtt() {
-  Serial.println(F("Adafruit MQTT demo"));
+  Serial.println(F("\n=== MQTT"));
   mqtt.subscribe(&bin);
 }

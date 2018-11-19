@@ -31,41 +31,10 @@
 // Include librarie
 //#include "mqtt.h"
 #include "ota.h"
+#include "wifi.h"
 
 // Buttons
 ButtonDebounce button(0, 5000);
-
-void setupWifi() {
-  /*
-  // Connect to WiFi access point.
-  Serial.println(); Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(WLAN_SSID);
-
-  WiFi.begin(WLAN_SSID, WLAN_PASS);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println();
-
-  Serial.println("WiFi connected");
-  Serial.println("IP address: "); Serial.println(WiFi.localIP());
-  */
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-  while (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    Serial.println("Connection Failed! Rebooting...");
-    delay(5000);
-    digitalWrite(led2, HIGH);
-    delay(20);  
-    digitalWrite(led1, LOW); 
-    ESP.restart();
-  }
-  Serial.println("Ready");
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
-}
 
 void setupPins() {
   pinMode(led1, OUTPUT);
@@ -79,7 +48,9 @@ void buttonChanged(int state){
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Booting");
+  delay(500);
+  Serial.println(F("::: Coffee-Bin booting :::"));
+  
   setupWifi();
   setupOta();
   setupPins();
