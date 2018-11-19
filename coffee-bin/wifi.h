@@ -1,11 +1,21 @@
+/*
+  Coffee bin
+
+  MQTT bin project for coffee-bin https://coffee-bin-mqtt.readthedocs.io/
+
+  Created 11 September 2018
+  By André Lademann <vergissberlin@gmail.com>
+
+  https://github.com/vergissberlin/coffee-bin-mqtt
+*/
 
 // Create an ESP8266 WiFiClient class to connect to the MQTT server.
-WiFiClient client;
+// WiFiClient client;
 // or... use WiFiFlientSecure for SSL
 //WiFiClientSecure client;
 
 void setupWifi() {
-  Serial.println(F("\n=== WiFi"));
+  Serial.println(F("\n▶ WiFi"));
   Serial.print(F("Connecting to \""));
   Serial.print(wifiSsid);
   Serial.print(F("\"\t"));

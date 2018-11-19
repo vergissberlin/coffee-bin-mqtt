@@ -1,6 +1,16 @@
+/*
+  Coffee bin
+
+  MQTT bin project for coffee-bin https://coffee-bin-mqtt.readthedocs.io/
+
+  Created 11 September 2018
+  By André Lademann <vergissberlin@gmail.com>
+
+  https://github.com/vergissberlin/coffee-bin-mqtt
+*/
 
 void setupOta() {
-  Serial.println(F("\n=== OTA"));
+  Serial.println(F("\n▶ OTA"));
   Serial.println(F("Waiting for updates ..."));
 
   ArduinoOTA.setPort(otaPort);
@@ -25,4 +35,8 @@ void setupOta() {
     else if (error == OTA_END_ERROR) Serial.println(F("End Failed"));
   });
   ArduinoOTA.begin();
+}
+
+void loopOta() {
+    ArduinoOTA.handle();
 }

@@ -20,6 +20,8 @@
 */
 
 #include <ArduinoOTA.h>
+#include <Adafruit_MQTT.h>
+#include <Adafruit_MQTT_Client.h>
 #include <ButtonDebounce.h>
 #include <ESP8266mDNS.h>
 #include <ESP8266WiFi.h>
@@ -28,59 +30,28 @@
 // Load configuration
 #include "config.h"
 
-// Include librarie
-//#include "mqtt.h"
-#include "ota.h"
+// Include libraries
 #include "wifi.h"
-
-// Buttons
-ButtonDebounce button(0, 5000);
-
-void setupPins() {
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-  button.setCallback(buttonChanged);
-}
-
-void buttonChanged(int state){
-  Serial.println("Changed: " + String(state));
-}
+#include "mqtt.h"
+#include "ota.h"
+#include "pins.h"
 
 void setup() {
   Serial.begin(9600);
   delay(500);
-  Serial.println(F("::: Coffee-Bin booting :::"));
+  Serial.println(F(" ✰✰✰  Coffee-Bin booting ✰✰✰ "));
   
   setupWifi();
   setupOta();
   setupPins();
-  //setupMqtt();
+  setupMqtt();
 }
 
+
 void loop() {
-  ArduinoOTA.handle();
-  button.update();
-
-  // MQTT
-  /*
-  MQTT_connect();
-  Adafruit_MQTT_Subscribe *subscription;
-  while ((subscription = mqtt.readSubscription(5000))) {
-    if (subscription == &bin) {
-      Serial.print(F("Got: "));
-      Serial.println((char *)bin.lastread);
-    }
-  }
-
-  // Now we can publish stuff!
-  Serial.print(F("\nSending maintenance val "));
-  Serial.print("...");
-  if (! maintenance.publish(x++)) {
-    Serial.println(F("Failed"));
-  } else {
-    Serial.println(F("OK!"));
-  }
-  */
+  loopMqtt();
+  loopOta();
+  loopPin();
 
   // Heartbeat LED
   digitalWrite(led1, LOW);
