@@ -8,11 +8,8 @@
 
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
-
-// Create an ESP8266 WiFiClient class to connect to the MQTT server.
-// WiFiClient client;
-// or... use WiFiFlientSecure for SSL
-//WiFiClientSecure client;
+int connectInteration = 0;
+int connectInterationMaximum = 144;
 
 void setupWifi() {
   Serial.println(F("\n▶ WiFi"));
@@ -20,19 +17,36 @@ void setupWifi() {
   Serial.print(wifiSsid);
   Serial.print(F("\"\t"));
   
-  WiFi.mode(WIFI_STA);
+  // WiFi.mode(WIFI_STA);
+  WiFi.hostname(wifiHostname);
   WiFi.begin(wifiSsid, wifiPassword);
-
+  
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    digitalWrite(pinLedBottom, HIGH);
-    delay(20);  
-    digitalWrite(pinLedBottom, LOW); 
-    Serial.print(F("."));
+    connectInteration++;
+    connectInterationMaximum++;
+    blinkError(pinLedTop,"",true);
+    if (connectInteration == 12) {
+      Serial.print("☉\n\t\t\t");
+      connectInteration = 0;
+    } else {
+      Serial.print(F("☉"));  
+    }
+    if(connectInterationMaximum == 144) {
+      byte numSsid = WiFi.scanNetworks();
+      Serial.print("SSID List:\t\t");
+      Serial.println(numSsid);
+      connectInteration = 144;
+      delay(15000);
+      ESP.restart();
+    }
+    delay(3000);    
   }
   Serial.println();
-
   Serial.println(F("Status\t\t\tWiFi connected!"));
   Serial.print(F("IP address\t\t")); 
   Serial.println(WiFi.localIP());
+  Serial.print("GW address\t\t");
+  Serial.println(WiFi.gatewayIP());
+  Serial.print("MAC address\t\t");
+  Serial.println(WiFi.macAddress());
 }

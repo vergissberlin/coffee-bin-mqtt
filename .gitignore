@@ -1,5 +1,6 @@
 /*
 !/.gitignore
+!/build/fw
 !/docs/
 !/coffee-bin
 !/LICENSE

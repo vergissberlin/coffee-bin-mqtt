@@ -25,25 +25,41 @@
 #include <ButtonDebounce.h>
 #include <ESP8266mDNS.h>
 #include <ESP8266WiFi.h>
+#include <TimedBlink.h>
 #include <WiFiUdp.h>
+
 
 // Load configuration
 #include "config.h"
 
+// Variables
+boolean statusBin = false;
+boolean statusMaintenance = false;
+
 // Include libraries
-#include "wifi.h"
+#include "blink.h"
 #include "mqtt.h"
-#include "ota.h"
 #include "pins.h"
+#include "wifi.h"
+#include "ota.h"
+
 
 void setup() {
   Serial.begin(9600);
   delay(500);
-  Serial.println(F("\n\t✰✰✰  Coffee-Bin booting ✰✰✰ "));
+  Serial.println(F("\n      ✰✰✰  Coffee-Bin booting ✰✰✰      "));
+  Serial.println("\n\
+            __  __            _     _       \n\
+           / _|/ _|          | |   (_)      \n\
+  ___ ___ | |_| |_ ___  ___  | |__  _ _ __  \n\
+ / __/ _ \\|  _|  _/ _ \\/ _ \\ | '_ \\| | '_ \\ \n\
+| (_| (_) | | | ||  __/  __/ | |_) | | | | |\n\
+ \\___\\___/|_| |_| \\___|\\___| |_.__/|_|_| |_|\n\    
+  ");
   
+  setupPins();
   setupWifi();
   setupOta();
-  setupPins();
   setupMqtt();
 }
 
@@ -51,14 +67,4 @@ void loop() {
   loopMqtt();
   loopOta();
   loopPin();
-
-  // Heartbeat LED
-  digitalWrite(pinLedTop, LOW);
-  delay(80);
-  digitalWrite(pinLedBottom, LOW);
-  delay(20);
-  digitalWrite(pinLedTop, HIGH);
-  delay(80);
-  digitalWrite(pinLedBottom, HIGH);
-  delay(200);
 }

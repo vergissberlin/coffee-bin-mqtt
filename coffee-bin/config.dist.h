@@ -1,5 +1,6 @@
-const char* ssid                  = "xxx";
-const char* password              = "xxx";
+const char* wifiSsid              = "xxx";
+const char* wifiPassword          = "xxx";
+const char* wifiHostname          = "coffee-bin";
 
 const int   pinLedTop             = BUILTIN_LED;
 const int   pinLedBottom          = 2;
@@ -11,10 +12,12 @@ const char* otaHostName           = "coffee-bin";
 const char* otaPassword           = "passwrd";
 const int   otaPort               = 8266;
 
-const char* mqttServer            = "io.adafruit.com";
-const int   mqttPort              = 1883;
-const char* mqttUser              = "vergissberlin";
-const char* mqttKey               = "ad755b7b9d994e4abe62bc0ace181023";
+#define     MQTT_SERVER           "io.adafruit.com"
+#define     MQTT_SERVERPORT       1883 // use 8883 for SSL
+#define     MQTT_USERNAME         "xxx"
+#define     MQTT_KEY              "xxx"
+#define     MQTT_FEED_BIN         "/feeds/coffee-bin.bin"
+#define     MQTT_FEED_MAINTENANCE "/feeds/coffee-bin.maintenance"
 
 const char* mqttFeedBin           = "/feeds/coffee-bin.bin";
 const char* mqttFeedMaintenance   = "/feeds/coffee-bin.maintenance";

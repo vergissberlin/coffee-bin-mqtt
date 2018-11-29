@@ -7,8 +7,8 @@
   By André Lademann <vergissberlin@gmail.com>
 
   https://github.com/vergissberlin/coffee-bin-mqtt
+  @see https://gist.github.com/igrr/24dd2138e9c8a7daa1b4
 */
-
 void setupOta() {
   Serial.println(F("\n▶ OTA"));
   Serial.println(F("Waiting for updates ..."));
@@ -18,13 +18,13 @@ void setupOta() {
   ArduinoOTA.setPassword(otaPassword);
 
   ArduinoOTA.onStart([]() {
-    Serial.println(F("Start"));
+    Serial.println(F("OTA receiving new software"));
   });
   ArduinoOTA.onEnd([]() {
-    Serial.println(F("\nEnd"));
+    Serial.println(F("\nOTA End"));
   });
   ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
-    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+    Serial.printf("Progress:\t\t%u%%\r", (progress / (total / 100)));
   });
   ArduinoOTA.onError([](ota_error_t error) {
     Serial.printf("Error[%u]: ", error);
