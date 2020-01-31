@@ -21,7 +21,14 @@ void setupOta() {
   ArduinoOTA.setPassword(otaPassword);
 
   ArduinoOTA.onStart([]() {
+    String type;
+    if (ArduinoOTA.getCommand() == U_FLASH) {
+      type = "sketch";
+    } else {
+      type = "filesystem";
+    }
     Serial.println(F("OTA receiving new software"));
+    Serial.println("Start updating " + type);
   });
   ArduinoOTA.onEnd([]() {
     Serial.println(F("\nOTA End"));
@@ -41,5 +48,5 @@ void setupOta() {
 }
 
 void loopOta() {
-    ArduinoOTA.handle();
+  ArduinoOTA.handle();
 }
