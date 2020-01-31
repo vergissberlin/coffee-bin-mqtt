@@ -45,7 +45,7 @@ boolean statusMaintenance = false;
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   delay(500);
   Serial.println(F("\n      ✰✰✰  Coffee-Bin booting ✰✰✰      "));
   Serial.println("\n\
