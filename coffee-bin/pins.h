@@ -9,6 +9,8 @@
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
 
+#include <ButtonDebounce.h>
+
 // Buttons & sensors
 ButtonDebounce buttonFlash(pinFlash, 5000);
 ButtonDebounce buttonBin(pinBin, 5000);
