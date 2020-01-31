@@ -8,6 +8,7 @@
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
 
+#include <TimedBlink.h>
 
 uint8_t statusHigh = HIGH;
 uint8_t statusLow = LOW;

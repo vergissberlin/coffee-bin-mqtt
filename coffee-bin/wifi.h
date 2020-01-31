@@ -8,6 +8,10 @@
 
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
+#include <ESP8266mDNS.h>
+#include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
+
 int connectInteration = 0;
 int connectInterationMaximum = 144;
 

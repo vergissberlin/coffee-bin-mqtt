@@ -19,16 +19,6 @@
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
 
-#include <ArduinoOTA.h>
-#include <Adafruit_MQTT.h>
-#include <Adafruit_MQTT_Client.h>
-#include <ButtonDebounce.h>
-#include <ESP8266mDNS.h>
-#include <ESP8266WiFi.h>
-#include <TimedBlink.h>
-#include <WiFiUdp.h>
-
-
 // Load configuration
 #include "config.h"
 
@@ -36,11 +26,11 @@
 boolean statusBin = false;
 boolean statusMaintenance = false;
 
-// Include libraries
+// Include libraries (ordering matters)
 #include "blink.h"
+#include "wifi.h"
 #include "mqtt.h"
 #include "pins.h"
-#include "wifi.h"
 #include "ota.h"
 
 

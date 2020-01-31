@@ -9,6 +9,9 @@
   https://github.com/vergissberlin/coffee-bin-mqtt
   @see https://gist.github.com/igrr/24dd2138e9c8a7daa1b4
 */
+
+#include <ArduinoOTA.h>
+
 void setupOta() {
   Serial.println(F("\n▶ OTA"));
   Serial.println(F("Waiting for updates ..."));

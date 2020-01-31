@@ -9,6 +9,9 @@
   https://github.com/vergissberlin/coffee-bin-mqtt
 */
 
+#include <Adafruit_MQTT.h>
+#include <Adafruit_MQTT_Client.h>
+
 // ************ Global State (you don't need to change this!) ******************
 
 // Create an ESP8266 WiFiClient class to connect to the MQTT server.
