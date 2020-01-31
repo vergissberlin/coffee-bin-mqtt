@@ -4,6 +4,7 @@ const char* wifiHostname          = "coffee-bin";
 
 const int   pinLedTop             = BUILTIN_LED;
 const int   pinLedBottom          = 2;
+const int   pinLedExtern          = D5;
 const int   pinFlash              = 0;
 const int   pinBin                = 4;
 const int   pinMaintenance        = 5;
@@ -18,6 +19,3 @@ const int   otaPort               = 8266;
 #define     MQTT_KEY              "xxx"
 #define     MQTT_FEED_BIN         "/feeds/coffee-bin.bin"
 #define     MQTT_FEED_MAINTENANCE "/feeds/coffee-bin.maintenance"
-
-const char* mqttFeedBin           = "/feeds/coffee-bin.bin";
-const char* mqttFeedMaintenance   = "/feeds/coffee-bin.maintenance";

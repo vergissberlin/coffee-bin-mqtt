@@ -42,11 +42,11 @@ void setupWifi() {
     delay(3000);    
   }
   Serial.println();
-  Serial.println(F("Status\t\t\tWiFi connected!"));
+  Serial.println(F("Status\t\tWiFi connected!"));
   Serial.print(F("IP address\t\t")); 
   Serial.println(WiFi.localIP());
   Serial.print("GW address\t\t");
   Serial.println(WiFi.gatewayIP());
-  Serial.print("MAC address\t\t");
+  Serial.print("MAC address\t");
   Serial.println(WiFi.macAddress());
 }
